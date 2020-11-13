@@ -35,7 +35,7 @@
             <a href="">對獎</a>
         </div>
         <div class="text-center">
-            <a href="">輸入獎號</a>
+            <a href="?do=add_awards">輸入獎號</a>
         </div>
         <div class="text-center">
             <a href="index.php">回首頁</a>
@@ -46,16 +46,11 @@
     <?php
 
         if(isset($_GET['do'])){
-
             $file=$_GET['do'].".php";
             include $file;
-
-
         }else{
-
             include "main.php";
         }
-
         ?>
     </div>
 
