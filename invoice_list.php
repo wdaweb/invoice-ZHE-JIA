@@ -24,12 +24,14 @@
     ?>
      <tr>
         <td><?=$row['code'].$row['number'];?></td>
-        <td> <?=$row['date'];?></td>
-        <td> <?=$row['payment'];?></td>
+        <td><?=$row['date'];?></td>
+        <td><?=$row['payment'];?></td>
 
 
         <td>
-            <button class="btn btn-sm btn-primary">編輯</button>
+            <button class="btn btn-sm btn-primary">
+                <a class="text-white" href="?do=edit_invoice&id=<?=$row['id'];?>">編輯</a>
+            </button>
             <button class="btn btn-sm btn-danger">刪除</button>
         </td>
      
