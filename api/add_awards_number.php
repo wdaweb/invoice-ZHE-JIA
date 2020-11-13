@@ -11,7 +11,9 @@ $period=$_POST['period'];
 echo "<pre>";
 print_r($_POST);
 echo "</pre>";
+        if(!empty($_POST['special_Prize'])){
 
+        
         $sql="insert into
                 award_numbers 
                     (`year`,`period`,`number`,`type`) 
@@ -19,15 +21,18 @@ echo "</pre>";
                     ('$year','$period','{$_POST['special_Prize']}','1')";
 
         $pdo->exec($sql);
+        }
 //特獎的新增 type=2
+        if(!empty($_POST['special_Prize'])){
 
+        
         $sql="insert into
                 award_numbers 
                     (`year`,`period`,`number`,`type`) 
                 values
                     ('$year','$period','{$_POST['grand_Prize']}','2')";
         $pdo->exec($sql);
-
+        }
 //頭獎 type=3
 foreach($_POST['first_Prize'] as $first){
 
@@ -42,7 +47,7 @@ foreach($_POST['first_Prize'] as $first){
 }
 //增開六獎 type=4
 
-foreach($_POST['add_six_Prize'] as $first){
+foreach($_POST['add_Six_Prize'] as $first){
 
     if(!empty($first)){
     $sql="insert into
@@ -56,7 +61,7 @@ foreach($_POST['add_six_Prize'] as $first){
 
 
 echo "新增完成";
-header("location:../index.php?do=award_numbers");
+header("location:../index.php?do=award_numbers&pd=".$year."-".$period);
 
 
 

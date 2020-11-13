@@ -7,7 +7,7 @@
         <th id="months">年月份</th> 
         <td headers="months" class="title"> 
             <input type="number" name="year" min="<?=date("Y")-1;?>" max="<?=date("Y")+1;?>" step="1" value="<?=date("Y");?>">年 
-            <select name="" id="">
+            <select name="period" id="">
                 <option value="1">01 ~ 02</option>
                 <option value="2">03 ~ 04</option>
                 <option value="3">05 ~ 06</option>
@@ -75,7 +75,7 @@
         </td> 
     </tr> 
     </tbody>
-    </table>
+</table>
     <div class="text-center">
         <input type="submit" value="儲存" class="mx-2 btn btn-primary btn-sm">
         <input type="reset" value="清空" class="mx-2 btn btn-warning btn-sm">
