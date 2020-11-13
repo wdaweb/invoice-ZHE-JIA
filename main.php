@@ -19,7 +19,7 @@
 
         <div class="text-center"><?=$month[$m];?></div>
         <div class="text-center">
-            <a href="">當期發票</a> 
+            <a href="invoice_list.php">當期發票</a> 
             </div>
         <div class="text-center">
             <a href="">對獎</a> 
