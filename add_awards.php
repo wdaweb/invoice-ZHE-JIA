@@ -38,9 +38,9 @@
     <tr> 
         <th id="firstPrize" rowspan="2">頭獎</th> 
         <td headers="firstPrize" class="number"> 
-        <input type="number" name="firstPrize" min="00000001" max="99999999">
-        <input type="number" name="firstPrize" min="00000001" max="99999999">
-        <input type="number" name="firstPrize" min="00000001" max="99999999">
+        <input type="number" name="first_Prize[]" min="00000001" max="99999999">
+        <input type="number" name="first_Prize[]" min="00000001" max="99999999">
+        <input type="number" name="first_Prize[]" min="00000001" max="99999999">
         </td> 
     </tr> 
     <tr> 
@@ -69,8 +69,9 @@
     <tr> 
         <th id="addSixPrize">增開六獎</th> 
         <td headers="addSixPrize" class="number">
-        <input type="number" name="addSixPrize" min="00000001" max="99999999">
-        <input type="number" name="addSixPrize" min="00000001" max="99999999">
+        <input type="number" name="add_Six_Prize[]" min="001" max="999">
+        <input type="number" name="add_Six_Prize[]" min="001" max="999">
+        <input type="number" name="add_Six_Prize[]" min="001" max="999">
         </td> 
     </tr> 
     </tbody>
