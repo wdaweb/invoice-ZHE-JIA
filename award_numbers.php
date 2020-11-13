@@ -5,10 +5,12 @@ include_once "base.php";
 
 
     if(isset($_GET['pd'])){
+        //使用explode分開後會將數值寫入陣列再取出
     $year=explode("-",$_GET['pd'])[0];
     $period=explode("-",$_GET['pd'])[1];
     echo "$year 123";
     }else {
+        //先排序年再排序期號
         $get_new=$pdo->query("select * from `award_numbers` order by year desc ,period desc limit 1")->fetch();
         $year=$get_new['year'];
         $period=$get_new['period'];

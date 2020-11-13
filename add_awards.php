@@ -6,6 +6,7 @@
     <tr> 
         <th id="months">年月份</th> 
         <td headers="months" class="title"> 
+            <!-- 顯示今年，min、max是input裡最大最小值容許值 step是每次+1或-1 -->
             <input type="number" name="year" min="<?=date("Y")-1;?>" max="<?=date("Y")+1;?>" step="1" value="<?=date("Y");?>">年 
             <select name="period" id="">
                 <option value="1">01 ~ 02</option>

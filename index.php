@@ -24,6 +24,7 @@
 <div class="container">
     <div class="col-8 d-flex justify-content-between p-3 mx-auto border">
     <?php
+        //把期號放入陣列
         $month=[
             1=>"1,2月",
             2=>"3,4月",
@@ -34,7 +35,6 @@
         ];
 
         $m=ceil(date("m")/2);
-
     ?>
         <div class="text-center"><?=$month[$m];?></div>
         <div class="text-center">
@@ -53,7 +53,7 @@
 
     <div class="col-8 d-flex p-3 mx-auto border">
     <?php
-
+        //判斷上方a href的GET值 抓檔案顯示在index.php裡 
         if(isset($_GET['do'])){
             $file=$_GET['do'].".php";
             include $file;
