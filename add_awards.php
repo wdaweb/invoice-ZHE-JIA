@@ -20,7 +20,7 @@
     <tr> 
         <th id="specialPrize" rowspan="2">特別獎</th> 
         <td headers="specialPrize" class="number"> 
-            <input type="number" name="specialPrize" min="00000001" max="99999999">
+            <input type="number" name="special_Prize" min="00000001" max="99999999">
         </td> 
     </tr> 
     <tr> 
@@ -29,7 +29,7 @@
     <tr> 
         <th id="grandPrize" rowspan="2">特獎</th> 
         <td headers="grandPrize" class="number">
-            <input type="number" name="grand_prize" min="00000001" max="99999999">
+            <input type="number" name="grand_Prize" min="00000001" max="99999999">
         </td> 
     </tr> 
     <tr> 
