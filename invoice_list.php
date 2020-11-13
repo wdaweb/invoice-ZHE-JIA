@@ -32,7 +32,9 @@
             <button class="btn btn-sm btn-primary">
                 <a class="text-white" href="?do=edit_invoice&id=<?=$row['id'];?>">編輯</a>
             </button>
-            <button class="btn btn-sm btn-danger">刪除</button>
+            <button class="btn btn-sm btn-danger">
+                <a  class ="text-white" href="?do=del_invoice&id=<?=$row['id'];?>">刪除</a>
+            </button>
         </td>
      
      </tr>
