@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <div class="col-8 d-flex p-3 mx-auto border">
+    <div class="col-8 d-flex p-3 mx-auto border" style="flex-direction: column">
     <?php
         //判斷上方a href的GET值 抓檔案顯示在index.php裡 
         if(isset($_GET['do'])){
