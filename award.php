@@ -24,9 +24,67 @@
     $period=ceil(explode('-',$date)[1]/2);
     $year=explode('-',$date)[0];
     
-    $award=$pdo->query("select * from award_numbers where year= '$year' && period='$period'")->fetchAll();
-    echo "<pre>";
-    print_r($award);
-    echo "</pre>";
+    $awards=$pdo->query("select * from award_numbers where year= '$year' && period='$period'")->fetchAll();
+    //  echo "<pre>";
+    //  print_r($awards);
+    //  echo "</pre>";
+
+    $all_res=-1;
+    foreach($awards as $award){
+
+        switch($award['type']){
+            case 1:
+                if($award['number'] == $number){
+                    echo "<br>".$number."<br>";
+                    echo "中特別獎了";
+                    echo "中1000萬元";
+                    $all_res=1;
+                }
+            break;
+            case 2:
+                if($award['number'] == $number){
+                    echo "<br>".$number."<br>";
+                    echo "中特獎了";
+                    echo "中200萬元";
+                    $all_res=1;
+                }
+            break;
+            case 3:
+                $res=-1;
+                for($i=5;$i>=0;$i--){
+                    $target=mb_substr($award['number'],$i,8-$i,'utf8');
+                    $mynumber=mb_substr($number,$i,8-$i,'utf8');
+                    
+                    if($target == $mynumber){
+                        $res=$i;
+                    }else {
+                        break;
+                    }
+                }
+                if($res != -1){
+                echo $number."號<br>";
+                echo "$awardStr[$res]獎<br>";
+                echo "中$awardMoney[$res]元";
+                $all_res=1;                  
+                }
+
+            break;
+            case 4:
+                if($award['number'] == mb_substr($number,5,3,'utf8')){
+                    echo "<br>".$number."<br>";
+                    echo "中六獎了";
+                    echo "中200元";
+                    $all_res=1;
+                }
+            break;
+
+
+        }
+
+
+    }
+    if($all_res==-1){
+        echo "銘謝惠顧";
+    }
 
 ?>
