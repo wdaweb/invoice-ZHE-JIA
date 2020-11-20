@@ -38,7 +38,8 @@
     </tr> 
     <tr> 
         <th id="firstPrize" rowspan="2">頭獎</th> 
-        <td headers="firstPrize" class="number"> 
+        <td headers="firstPrize" class="number">
+        <!-- input裡同個name會疊層覆蓋，因此需要[]放入陣列 -->
         <input type="number" name="first_Prize[]" min="00000001" max="99999999">
         <input type="number" name="first_Prize[]" min="00000001" max="99999999">
         <input type="number" name="first_Prize[]" min="00000001" max="99999999">

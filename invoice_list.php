@@ -10,7 +10,7 @@
 
 ?>
 <div class="row justify-content-around" sytle="padding-0">
-    <li style="list-style-type:none"><a href="">1,2月</a></li>
+    <li style="list-style-type:none"><a href="?do=invoice_list&period=1">1,2月</a></li>
     <li style="list-style-type:none"><a href="">3,4月</a> </li>
     <li style="list-style-type:none"><a href="">5,6月</a> </li>
     <li style="list-style-type:none"><a href="">7,8月</a> </li>

@@ -49,12 +49,12 @@ include_once "base.php";
 
 ?>
 <div class="row justify-content-around" sytle="padding-0">
-    <li style="list-style-type:none"><a href="">1,2月</a></li>
-    <li style="list-style-type:none"><a href="">3,4月</a> </li>
-    <li style="list-style-type:none"><a href="">5,6月</a> </li>
-    <li style="list-style-type:none"><a href="">7,8月</a> </li>
-    <li style="list-style-type:none"><a href="">9,10月</a> </li>
-    <li style="list-style-type:none"><a href="">11,12月</a></li>
+    <li style="list-style-type:none"><a href="?do=award_numbers&pd=2020-1">1,2月</a></li>
+    <li style="list-style-type:none"><a href="?do=award_numbers&pd=2020-2">3,4月</a> </li>
+    <li style="list-style-type:none"><a href="?do=award_numbers&pd=2020-3">5,6月</a> </li>
+    <li style="list-style-type:none"><a href="?do=award_numbers&pd=2020-4">7,8月</a> </li>
+    <li style="list-style-type:none"><a href="?do=award_numbers&pd=2020-5">9,10月</a> </li>
+    <li style="list-style-type:none"><a href="?do=award_numbers&pd=2020-6">11,12月</a></li>
 </div>
 <table class="table table-bordered table-sm" summary="統一發票中獎號碼單"> 
     <tbody>
@@ -144,3 +144,4 @@ include_once "base.php";
     </tr> 
     </tbody>
 </table>
+<button class="btn btn-primary mx-auto" ><a href="?do=all_awards&year=<?=$year;?>&period=<?=$period;?>" class="text-white">對獎</a> </button>
