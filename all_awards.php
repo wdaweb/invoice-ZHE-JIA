@@ -17,10 +17,12 @@
 
         $awards=$pdo->query("select * from award_numbers where year='{$_GET['year']}' && period='{$_GET['period']}'")->fetchAll();
         $invoices=$pdo->query("select * from invoices where period='{$_GET['period']}' && left(date,4)='{$_GET['year']}' Order by date desc")->fetchAll();
-
+        echo "<pre>";
+        print_r($awards);
+        echo "</pre>";
         $type=[
-            1=>'特獎',
-            2=>'特別獎',
+            1=>'特別獎',
+            2=>'特獎',
             3=>'頭獎',
             4=>'六獎'
         ];
@@ -40,15 +42,18 @@
                         }
                     break;
                     case 3:
-                            for($i=0;$i<5;$i++){
-                                if(mb_substr($invoice['number'],6-$i,8) == mb_substr($award['number'],6-$i,8)){
-                                    echo $invoice['number']."中".$type[$award['type']]."了<br>";
+                            for($i=1;$i<=5;$i++){
+                                if(mb_substr($invoice['number'],0+$i,8) == mb_substr($award['number'],0+$i,8)){
+                                    echo $invoice['number']."中".$awardStr[$i]."獎了<br>";
+                                break;
                                 }
                                 
                             }
-                            
-                        
                     break;
+                    case 4:
+                        if(mb_substr($invoice['number'],5,8) == $award['number']){
+                            echo $invoice['number']."中".$awardStr[5]."獎了<br>";
+                        }
 
 
 
