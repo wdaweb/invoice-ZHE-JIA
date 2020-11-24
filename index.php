@@ -1,3 +1,9 @@
+<?php
+    include_once "base.php";
+
+                
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +53,23 @@
             <a href="?do=add_awards">輸入獎號</a>
         </div>
         <div class="text-center">
-            <a href="index.php">回首頁</a>
+            <a href="index.php">輸入發票</a>
+        </div>
+        <div class="text-center">
+            <?php 
+
+                if(!empty($_SESSION)){
+                    if($_SESSION['acount'][0][1] == $_SESSION['user'][0]){
+                        echo $_SESSION['user'][0]."歡迎您！";
+                    }
+                    else{
+                        header("location:account.php");
+                    } 
+                }else {
+                    header("location:account.php");
+                }
+            ?>
+            <a href="account.php">登出</a>
         </div>
     </div>
 
