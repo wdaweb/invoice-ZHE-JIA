@@ -3,7 +3,7 @@
     include_once "base.php";
 
 
-    $sql="select * from `invoices` order by date desc";
+    $sql="select * from `invoices` where `period`='{$_GET['period']}' order by date desc";
 
     $rows=$pdo->query($sql)->fetchAll();
 
@@ -11,11 +11,11 @@
 ?>
 <div class="row justify-content-around" sytle="padding-0">
     <li style="list-style-type:none"><a href="?do=invoice_list&period=1">1,2月</a></li>
-    <li style="list-style-type:none"><a href="">3,4月</a> </li>
-    <li style="list-style-type:none"><a href="">5,6月</a> </li>
-    <li style="list-style-type:none"><a href="">7,8月</a> </li>
-    <li style="list-style-type:none"><a href="">9,10月</a> </li>
-    <li style="list-style-type:none"><a href="">11,12月</a></li>
+    <li style="list-style-type:none"><a href="?do=invoice_list&period=2">3,4月</a> </li>
+    <li style="list-style-type:none"><a href="?do=invoice_list&period=3">5,6月</a> </li>
+    <li style="list-style-type:none"><a href="?do=invoice_list&period=4">7,8月</a> </li>
+    <li style="list-style-type:none"><a href="?do=invoice_list&period=5">9,10月</a> </li>
+    <li style="list-style-type:none"><a href="?do=invoice_list&period=6">11,12月</a></li>
 </div>
 <table class="table text-center">
      <tr>
