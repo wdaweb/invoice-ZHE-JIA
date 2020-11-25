@@ -19,7 +19,7 @@
         'date'=>$date,
         'period'=>$period
     ];
-        $sql="insert into invoices (`".implode("`,`",array_keys($hope))."`) values('".implode("','",$hope)."')";
+        $sql="insert into invoices (`".implode("`,`",array_keys($hope))."`,name) values('".implode("','",$hope)."','mary')";
         $pdo->exec($sql); 
     }
     

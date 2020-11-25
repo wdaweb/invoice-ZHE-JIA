@@ -8,7 +8,7 @@ include_once "base.php";
         //使用explode分開後會將數值寫入陣列再取出
     $year=explode("-",$_GET['pd'])[0];
     $period=explode("-",$_GET['pd'])[1];
-    echo "$year 123";
+    echo "$year";
     }else {
         //先排序年再排序期號
         $get_new=$pdo->query("select * from `award_numbers` order by year desc ,period desc limit 1")->fetch();
@@ -16,7 +16,7 @@ include_once "base.php";
         $period=$get_new['period'];
 
     }
-    $awards=$pdo->query("select * from award_numbers where year='$year' && period='$period'")->fetchAll();
+    $awards=$pdo->query("select * from award_numbers where name='{$_SESSION['user']['acc']}' && year='$year' && period='$period'")->fetchAll();
     $special="";
     $grand="";
     $first=[];

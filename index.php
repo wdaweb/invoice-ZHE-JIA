@@ -53,14 +53,13 @@
             <a href="?do=add_awards">輸入獎號</a>
         </div>
         <div class="text-center">
-            <a href="index.php">輸入發票</a>
+            <a href="?do=main">輸入發票</a>
         </div>
         <div class="text-center">
             <?php 
-
                 if(!empty($_SESSION)){
-                    if($_SESSION['acount'][0][1] == $_SESSION['user'][0]){
-                        echo $_SESSION['user'][0]."歡迎您！";
+                    if($_SESSION['acount'][0]['acc'] == $_SESSION['user']['acc'] && $_SESSION['acount'][0]['pw'] == $_SESSION['user']['pw']){
+                        echo $_SESSION['user']['acc']."歡迎您！";
                     }
                     else{
                         header("location:account.php");

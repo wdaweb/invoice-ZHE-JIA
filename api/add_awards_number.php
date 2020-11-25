@@ -19,9 +19,9 @@ echo "</pre>";
         
         $sql="insert into
                 award_numbers 
-                    (`year`,`period`,`number`,`type`) 
+                    (`year`,`period`,`number`,`type`,`name`) 
                 values
-                    ('$year','$period','{$_POST['special_Prize']}','1')";
+                    ('$year','$period','{$_POST['special_Prize']}','1','{$_SESSION['user']['acc']}')";
 
         $pdo->exec($sql);
         }
@@ -31,9 +31,9 @@ echo "</pre>";
         
         $sql="insert into
                 award_numbers 
-                    (`year`,`period`,`number`,`type`) 
+                    (`year`,`period`,`number`,`type`,`name`) 
                 values
-                    ('$year','$period','{$_POST['grand_Prize']}','2')";
+                    ('$year','$period','{$_POST['grand_Prize']}','2','{$_SESSION['user']['acc']}'";
         $pdo->exec($sql);
         }
 //頭獎 type=3
@@ -42,9 +42,9 @@ foreach($_POST['first_Prize'] as $first){
     if(!empty($first)){
     $sql="insert into
             award_numbers 
-                (`year`,`period`,`number`,`type`) 
+                (`year`,`period`,`number`,`type`,name) 
             values
-                ('$year','$period','$first','3')";
+                ('$year','$period','$first','3','{$_SESSION['user']['acc']}')";
     $pdo->exec($sql);
     }
 }
@@ -55,9 +55,9 @@ foreach($_POST['add_Six_Prize'] as $first){
     if(!empty($first)){
     $sql="insert into
             award_numbers 
-                (`year`,`period`,`number`,`type`) 
+                (`year`,`period`,`number`,`type`,name) 
             values
-                ('$year','$period','$first','4')";
+                ('$year','$period','$first','4','{$_SESSION['user']['acc']}')";
     $pdo->exec($sql);
     }
 }

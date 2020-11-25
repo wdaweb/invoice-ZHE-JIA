@@ -3,7 +3,7 @@
     include_once "base.php";
 
 
-    $sql="select * from `invoices` where `period`='{$_GET['period']}' order by date desc";
+    $sql="select * from `invoices` where `name`='{$_SESSION['user']['acc']}' &&`period`='{$_GET['period']}' order by date desc";
 
     $rows=$pdo->query($sql)->fetchAll();
 

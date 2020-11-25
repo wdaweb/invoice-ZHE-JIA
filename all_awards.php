@@ -15,8 +15,8 @@
         echo "你要對的發票是".$_GET['year']."年,";
         echo "期數是".$period_str[$_GET['period']]."<br>";
 
-        $awards=$pdo->query("select * from award_numbers where year='{$_GET['year']}' && period='{$_GET['period']}'")->fetchAll();
-        $invoices=$pdo->query("select * from invoices where period='{$_GET['period']}' && left(date,4)='{$_GET['year']}' Order by date desc")->fetchAll();
+        $awards=$pdo->query("select * from award_numbers where name='{$_SESSION['user']['acc']}' && year='{$_GET['year']}' && period='{$_GET['period']}'")->fetchAll();
+        $invoices=$pdo->query("select * from invoices where name='{$_SESSION['user']['acc']}' && period='{$_GET['period']}' && left(date,4)='{$_GET['year']}' Order by date desc")->fetchAll();
 
         $type=[
             1=>'特別獎',
