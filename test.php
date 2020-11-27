@@ -2,9 +2,9 @@
 
     include_once "base.php";
 
-    $row3=find3('invoices',['code'=>'CA', 'number'=>'29586435']);
+    // $row3=find3('invoices',['code'=>'CA', 'number'=>'29586435']);
 
-    echo $row3['code'].$row3['number']."<hr>";
+    // echo $row3['code'].$row3['number']."<hr>";
 
     function find3($table,$id){
         global $pdo;
@@ -53,14 +53,14 @@
         return $pdo->query($sql)->fetchAll();
     }
 
-    all('invoices');
-    echo "<hr>";
-    all('invoices',['code'=>"AA",'period'=>6]);
-    echo "<hr>";
-    all('invoices',['code'=>"CA",'period'=>1],"order by date desc");
-    echo "<hr>";
-    all('invoices'," limit 5");
-    echo "<hr>";
+    // all('invoices');
+    // echo "<hr>";
+    // all('invoices',['code'=>"AA",'period'=>6]);
+    // echo "<hr>";
+    // all('invoices',['code'=>"CA",'period'=>1],"order by date desc");
+    // echo "<hr>";
+    // all('invoices'," limit 5");
+    // echo "<hr>";
 
     function del ($table,$id){
 
@@ -81,25 +81,86 @@
         return $row;
     }
 
-    del('invoices',120);
+    // del('invoices',120);
 
 
-    function update($table,$id,$number){
-
+    function update($table,$array){
         global $pdo;
-        $sql="update $table SET number = '$number' ";
+        $sql=" update $table set ";
 
-        foreach($id as $key => $value){
+        foreach($array as $key => $value){
+            if($key !='id'){
             $tmp[]=sprintf("`%s`='%s'",$key,$value);
-            
-
+            // $temp[]="`".$key."`='".$value."'";上面程式碼顯示結果
+            }
         }
-            $sql=$sql." where ".implode(" && ", $tmp);
-            $row=$pdo->exec($sql);
-            return $row;
+        $sql=$sql.implode(",",$tmp) . " where `id`='{$array['id']}'";
+        echo $sql;
+        //$pdo->exec($sql);
+
+    }
+    $row=["id"=>'130',"payment"=>'1',"code"=>'AC'];
+    // $row=["code"=>'AC'];
+    // $row=["payment"=>'1'];
+
+    update('invoices',$row);
+
+    function insert($table,$array){
+        global $pdo;
+
+        $sql="insert into $table(`". implode("`,`",array_key($array))."`)  values('".implode("','",$array)."')";
+        $pdo->exec($sql);
+
     }
 
-    update('invoices',['id'=>'130'],12345678);
+    function save($table,$array){
+        if(isset($array['id'])){
+            update($table,$array);
+        }else{
+            insert($table,$array);
+        }
+
+
+    }
+
+    function to($url){
+
+        header("location:".$url);
+    }
+
+    function q($sql){
+        global $pdp;
+        return $pdo->query($sql)->fetchAll();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function updatetest($table,$id,$number){
+
+    //     global $pdo;
+    //     $sql="update $table SET number = '$number' ";
+
+    //     foreach($id as $key => $value){
+    //         $tmp[]=sprintf("`%s`='%s'",$key,$value);
+            
+
+    //     }
+    //         $sql=$sql." where ".implode(" && ", $tmp);
+    //         $row=$pdo->exec($sql);
+    //         return $row;
+    // }
+
+    // updatetest('invoices',['id'=>'130'],12345678);
 
 
     // INSERT INTO `table`(`id`,`name`) VALUES ( '12' , 'stanley' );
