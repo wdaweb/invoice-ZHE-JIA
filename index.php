@@ -62,10 +62,10 @@
                         echo $_SESSION['user']['acc']."歡迎您！";
                     }
                     else{
-                        header("location:account.php");
+                        header("location:account.php?error=1");
                     } 
                 }else {
-                    header("location:account.php");
+                    header("location:account.php?error=1");
                 }
             ?>
             <a href="account.php">登出</a>
