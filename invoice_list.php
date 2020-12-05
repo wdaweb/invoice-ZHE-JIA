@@ -1,9 +1,22 @@
 
 <?php
     include_once "base.php";
+    //處理分頁
+    $data="select count(*) from invoices where period='{$_GET['period']}' && `name`='{$_SESSION['user']['acc']}'";
+    $data=$pdo->query($data)->fetch();
+    $per=20;
+    $pages = ceil($data[0]/$per);
 
+    if(isset($_GET['pages'])){
+        $page=$_GET['pages'];
+    }else{
+        $page=1;
+    }
 
-    $sql="select * from `invoices` where `name`='{$_SESSION['user']['acc']}' &&`period`='{$_GET['period']}' order by date desc";
+    $start = ($page-1)*$per;
+
+    //處理發票資料庫
+    $sql="select * from `invoices` where `name`='{$_SESSION['user']['acc']}' &&`period`='{$_GET['period']}' order by date desc limit $start,$per";
 
     $rows=$pdo->query($sql)->fetchAll();
 
@@ -26,6 +39,7 @@
 
      </tr>
      <?php
+     //從資料庫提取的資料放入table
     foreach($rows as $row){
 
     
@@ -50,8 +64,18 @@
      
      </tr>
      <?php
+     
     }
+
 
      ?>
 
 </table>
+
+<?php
+        //印出分頁列表
+        echo "<div class='row justify-content-around'>";
+        for($i=1;$i<=$pages;$i++){
+            echo "<a href='?do=invoice_list&pages=$i&period={$_GET['period']}'>$i</a>";
+        }
+?>
