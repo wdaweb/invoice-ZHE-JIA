@@ -26,14 +26,14 @@ echo "</pre>";
         $pdo->exec($sql);
         }
 //特獎的新增 type=2
-        if(!empty($_POST['special_Prize'])){
+        if(!empty($_POST['grand_Prize'])){
+            echo 
 
-        
         $sql="insert into
                 award_numbers 
                     (`year`,`period`,`number`,`type`,`name`) 
                 values
-                    ('$year','$period','{$_POST['grand_Prize']}','2','{$_SESSION['user']['acc']}'";
+                    ('$year','$period','{$_POST['grand_Prize']}','2','{$_SESSION['user']['acc']}')";
         $pdo->exec($sql);
         }
 //頭獎 type=3
